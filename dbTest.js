@@ -1,9 +1,9 @@
 var db = require('./models');
 
 // db.user.findOrCreate({
-//   where: {name: 'Denise'},
+//   where: {name: 'Kristen'},
 //   defaults: {
-//   	email: 'dkk@gmail.com',
+//   	email: 'ky@gmail.com',
 //   	password: "password"
 //   }
 // }).spread(function(user, created) {
@@ -11,10 +11,11 @@ var db = require('./models');
 //   });
 
 
-db.user.find({
-  where: {name: 'Rachel'},
-}).then(function(user) {
-  user.addFriend()
+// db.user.find({
+//   where: {name: 'Rachel'},
+// }).then(function(user) {
+//   console.log(user);
+// });
 
 
 // db.movie.findOrCreate({
@@ -40,9 +41,24 @@ db.user.find({
 // }).then(function(user) {
 //   console.log(user.get());
 // });
+// add user 1 as a friend of 3
+// db.user.findById(1).then(function(user) {
+//   db.user.findById(3).then(function(friend) {
+//   	user.addFriend(friend).then(function(){
+//   		console.log('done');
+//   	});
+//   });
+// });
 
+// db.user.findById(2).then(function(user) {
+//   db.user.findById(1).then(function(friend) {
+//   		console.log(friend);
+//   	});
+//   });
 
-
+// db.usersFriends.findAll({where: {friendId: 1}}).then(function(friends){
+// 	console.log(friends);
+// });
 
 
 

@@ -1,7 +1,6 @@
 {
   "name": "flixr_app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +15,15 @@
     "pg": "^4.4.6",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.19.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nepios/flixr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nepios/flixr/issues"
+  },
+  "homepage": "https://github.com/Nepios/flixr#readme",
+  "description": ""
 }
