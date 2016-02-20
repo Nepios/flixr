@@ -1,0 +1,6 @@
+As a user, I want to search for shows.
+As a user, I want to see what platforms the shows are on.
+As a user, I want to add / delete shows to my favorites list.
+As a user, I want to add / delete shows to my current list.
+As a user, I want to follow my friends and see what they're watching.
+As a user, I want to chat with my friends while watching a show together.
