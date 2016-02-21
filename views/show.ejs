@@ -6,16 +6,19 @@
 		      <img src="<%= movieData.artwork_448x252 %>">
 
 		    </div>
-		    <div class="card-content center-align">
+		    <div class="card-content left-align">
 		      <p><%= movieData.overview %>
 		      <% platforms.results.web.episodes.all_sources.forEach(function(platform){ %>
-		      	<h6><%= platform.display_name %></h6>
+		      		<% var list = []; %>
+		      		<% list.push(platform.display_name); %>
+		      		<h6><%= list %></h6>
 		      <% }); %>
+
 		      </p>
 
 		    </div>
 		    <div class="card-action">
-		      <a href="#">Add to Favorites</a>
+		      <a href="/favorites/">Add to Favorites</a>
 		    </div>
 		      <div class="card-action">
 		      <a href="#">Add to Currently Watching</a>
