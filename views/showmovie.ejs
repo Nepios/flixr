@@ -1,13 +1,14 @@
+<h1>show movie</h1>
 <div class="center-align">
 	<div class="row">
 		<div class="col s12 m7">
 		  <div class="card">
 		    <div class="card-image">
-		      <img src="<%= showData.artwork_448x252 %>">
+		      <img src="<%= movieData.poster_240x342 %>">
 
 		    </div>
 		    <div class="card-content left-align">
-		      <p><%= showData.overview %>
+		      <p><%= movieData.overview %>
 		      <% platforms.results.web.episodes.all_sources.forEach(function(platform){ %>
 		      		<% var list = []; %>
 		      		<% list.push(platform.display_name); %>
