@@ -8,6 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      userId: {
+        type: Sequelize.INTEGER
+      },
       title: {
         type: Sequelize.STRING
       },
@@ -17,7 +20,7 @@ module.exports = {
       current: {
         type: Sequelize.BOOLEAN
       },
-      userId: {
+      guideboxId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
