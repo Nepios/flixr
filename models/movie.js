@@ -1,11 +1,9 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var movie = sequelize.define('movie', {
-    userId: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    favorite: DataTypes.BOOLEAN,
-    current: DataTypes.BOOLEAN,
-    guideboxId: DataTypes.INTEGER
+    guideboxId: DataTypes.INTEGER,
+    image: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {

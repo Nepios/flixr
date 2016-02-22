@@ -39,8 +39,6 @@ router.get('/show/:id', function (req, res){
 			});
 		}
 	});
-
-
 });
 
 router.get('/movie', function(req, res){
@@ -77,8 +75,6 @@ router.get('/movie/:id', function (req, res){
 			});
 		}
 	});
-
-
 });
 
 

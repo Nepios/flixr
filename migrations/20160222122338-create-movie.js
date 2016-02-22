@@ -8,20 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER
-      },
       title: {
         type: Sequelize.STRING
       },
-      favorite: {
-        type: Sequelize.BOOLEAN
-      },
-      current: {
-        type: Sequelize.BOOLEAN
-      },
       guideboxId: {
         type: Sequelize.INTEGER
+      },
+      image: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
