@@ -2,6 +2,7 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var passport = require('passport');
+var flash = require('connect-flash');
 
 router.get('/signup', function(req, res) {
   res.render('signup');
@@ -26,7 +27,6 @@ router.post('/signup', function(req, res) {
   		res.send("User already exists");
   	}
   }).catch(function(err){
-  	// req.flash('danger', err)
   	res.send(err);
   });
 
@@ -39,17 +39,18 @@ router.get('/login', function(req, res) {
 router.post('/login', function(req, res) {
 	var email = req.body.email;
 	var password = req.body.password;
-	db.user.authenticate(email, password, function(err, user){
-		if(err){
-			res.send(err);
-		}else if (user){
-			req.session.userId = user.id;
-      res.redirect('/');
-
-		} else {
-			res.send("email and/or password invalid");
-		}
-	});
+  passport.authenticate('local', function(err, user, info) {
+    if (user) {
+      req.login(user, function(err) {
+        if (err) throw err;
+        req.flash('success', 'You are now logged in.');
+        res.redirect('/');
+      });
+    } else {
+      req.flash('danger', 'Error');
+      res.redirect('/auth/login');
+    }
+  })(req, res);
 });
 
 router.get('/login/:provider', function(req, res) {

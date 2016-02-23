@@ -18,8 +18,7 @@ app.set("view engine", 'ejs');
 app.use(ejsLayouts);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/static'));
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 app.use(flash());
 app.use(session({
@@ -27,6 +26,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 passport.serializeUser(strategies.serializeUser);
 passport.deserializeUser(strategies.deserializeUser);
 passport.use(strategies.localStrategy);
@@ -37,14 +39,10 @@ app.use(function(req,res,next){
   res.locals.isAuthenticated = req.isAuthenticated();
   res.locals.alerts = req.flash;
   console.log(req.isAuthenticated());
+  console.log(req.user);
   next();
 });
 
-
-
-app.get("/", function(req,res){
-  res.render("index.ejs");
-});
 app.use("/results", resultCtrl);
 app.use("/favorite", favoriteCtrl);
 app.use("/current", currentCtrl);

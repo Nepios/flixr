@@ -32,8 +32,10 @@ module.exports = function(sequelize, DataTypes) {
       authenticate: function(email, password, callback){
       this.find({where: {email: email}}).then(function(user){
         if (user) {
+          console.log("running authenticate function");
           bcrypt.compare(password, user.password, function(error, result){
             if (error) {
+              console.log("authenticate function error");
               callback(error);
             } else{
               callback(null, result ? user : false);
