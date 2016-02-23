@@ -9,6 +9,9 @@
  </div>
 <div>
  	<form method="POST" action="/favorite">
+ 		<input type="hidden" name="title" value="<%= showData.title %>"/>
+		<input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
+		<input type="hidden" name="guideboxId" value="<%= showData.id%>"/>	
  		<button type="submit">Add to Favorites
   		</button>
   	</form>

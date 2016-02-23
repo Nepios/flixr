@@ -41,7 +41,7 @@ var db = require('./models');
 // }).then(function(user) {
 //   console.log(user.get());
 // });
-// add user 1 as a friend of 3
+// // add user 1 as a friend of 3
 // db.user.findById(1).then(function(user) {
 //   db.user.findById(3).then(function(friend) {
 //   	user.addFriend(friend).then(function(){
@@ -60,7 +60,14 @@ var db = require('./models');
 // 	console.log(friends);
 // });
 
-
+// db.user.findById(1).then(function(user) {
+//   db.movie.findOrCreate({
+//   	where: {title: 'Star Wars'}
+// 	}).spread(function(movie, created) {
+//     	user.addMovie(movie);
+//     	console.log("done");
+//   });
+// });
 
 
 

@@ -10,6 +10,9 @@ router.get('/', function(req, res){
 });
 
 router.post('/', function(req, res){
+	console.log(req.body.title);
+	console.log(req.body.guideboxId);
+	console.log(req.body.image);
 	res.send("favorite post");
 });
 

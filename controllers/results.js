@@ -7,6 +7,7 @@ router.use(bodyParser.urlencoded({extended: false}));
 
 router.get('/show', function(req, res){
 	var searchTerm = req.query.show;
+	console.log("https://api-public.guidebox.com/v1.43/US/" + process.env.SECRET_KEY + "/search/title/" + searchTerm + '/fuzzy');
 	request("https://api-public.guidebox.com/v1.43/US/" + process.env.SECRET_KEY + "/search/title/" + searchTerm + '/fuzzy', 
 		function(error, response, body){
 			if (!error && response.statusCode == 200){
