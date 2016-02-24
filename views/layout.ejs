@@ -11,19 +11,26 @@
 <body>
   <nav>
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo center">Flixr</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="/auth/login">Login</a></li>
-        <li><a href="/auth/signup">Signup</a></li>
-        <li><a href="/auth/logout">Logout</a></li>
-      </ul>
-      <form method="GET" action="/results/show">
-        <div class="left input-field">
-          <input id="search" type="search" name="show" required>
-          <label for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
+        <a href="/" class="brand-logo center">Flixr</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/auth/login">Login</a></li>
+          <li><a href="/auth/signup">Signup</a></li>
+          <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="/auth/login">Login</a></li>
+          <li><a href="/auth/signup">Signup</a></li>
+          <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+        <form method="GET" action="/results/show">
+          <div class="left input-field">
+            <input id="search" type="search" name="show" required>
+            <label for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+
     </div>
   </nav>
   <div class="container">
