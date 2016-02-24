@@ -3,23 +3,28 @@
 	 <p><%= showData.overview %></p>
 	  	<% platforms.results.web.episodes.all_sources.map(function(platform){ %>
 	  		<ul>
-	  			<li><%- platform.display_name %></li>
+	  			<li><%- platform.display_name %> | </li>
 	  		</ul>
 	  	<% }); %>
  </div>
 <div>
- 	<form method="POST" action="/favorite">
- 		<input type="hidden" name="title" value="<%= showData.title %>"/>
-		<input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
-		<input type="hidden" name="guideboxId" value="<%= showData.id%>"/>	
- 		<button type="submit">Add to Favorites
-  		</button>
-  	</form>
-  	<form method="POST" action="/current" >
-  	 	<input type="hidden" name="title" value="<%= showData.title %>"/>
-		<input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
-		<input type="hidden" name="guideboxId" value="<%= showData.id%>"/>	
- 		<button type="submit">Add to Current
-  		</button>
-  	</form>
+  <div class="row">
+ 	  <form method="POST" action="/favorite">
+      <div class="input-field col s3">
+   		<input type="hidden" name="title" value="<%= showData.title %>"/>
+  		<input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
+  		<input type="hidden" name="guideboxId" value="<%= showData.id%>"/>	
+   		<button type="submit" class="waves-effect waves-light btn">Add to Favorites
+    		</button>
+      </div>
+    </form>
+    <form method="POST" action="/current" >
+      <div class="input-field col s3">
+    	 	<input type="hidden" name="title" value="<%= showData.title %>"/>
+    		<input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
+    		<input type="hidden" name="guideboxId" value="<%= showData.id%>"/>	
+     		<button type="submit" class="waves-effect waves-light btn">Add to Current
+      		</button>
+    </form>
   </div>
+</div>

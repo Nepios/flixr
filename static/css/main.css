@@ -5,3 +5,7 @@ nav {
 .carousel-item img {
 
 }
+
+ul {
+  display: inline-block;
+}
