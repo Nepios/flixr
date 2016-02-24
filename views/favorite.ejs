@@ -1,0 +1,9 @@
+  <h1> Favorite Shows</h1>
+  <div class="carousel">
+    <% user.shows.forEach(function(show){%>
+      <% if (show.usersShows.favorite) { %>
+          <a class="carousel-item" href="/results/show/<% show.guideboxId %>"><img src="<%= show.image%>"></a>
+      <% } %>
+
+    <% }) %>
+  </div>

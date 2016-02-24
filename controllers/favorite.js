@@ -6,8 +6,14 @@ var request = require('request');
 router.use(bodyParser.urlencoded({extended: false}));
 
 router.get('/', function(req, res){
-	res.send("favorite");
-});
+	 db.user.find({
+    where: {
+      id: req.user.id},
+      include: [db.show]
+      }).then(function(user) {
+        res.render('favorite', {user: user});
+    });
+  });
 
 router.post('/', function(req, res){
 	db.user.findById(req.user.id).then(function(user) {
@@ -19,10 +25,12 @@ router.post('/', function(req, res){
 			}
 		}).spread(function(show, created){
 			user.addShow(show, {favorite: true});
+      res.redirect('/');
 		});
 	});
-	res.send("favorite post");
 });
+
+
 
 
 module.exports = router;
