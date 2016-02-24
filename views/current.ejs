@@ -1,0 +1,11 @@
+  <div class="center-align">
+    <h2>Current Shows</h2>
+  </div>
+  <div class="carousel">
+    <% user.shows.forEach(function(show){%>
+      <% if (show.usersShows.current) { %>
+          <a class="carousel-item" href="/results/show/<%= show.guideboxId %>"><img src="<%= show.image%>"></a>
+      <% } %>
+
+    <% }) %>
+  </div>
