@@ -2,7 +2,7 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 var passport = require('passport');
-var flash = require('connect-flash');
+var Materialize = require('materialize');
 
 router.get('/signup', function(req, res) {
   res.render('signup');
@@ -43,11 +43,11 @@ router.post('/login', function(req, res) {
     if (user) {
       req.login(user, function(err) {
         if (err) throw err;
-        req.flash('success', 'You are now logged in.');
+        ('success', 'You are now logged in.');
         res.redirect('/');
       });
     } else {
-      req.flash('danger', 'Error');
+      // Materialize.toast('Error', 4000);
       res.redirect('/auth/login');
     }
   })(req, res);
@@ -66,18 +66,18 @@ router.get('/callback/:provider', function(req, res) {
     if (user) {
       req.login(user, function(err) {
         if (err) throw err;
-        req.flash('success', 'You logged in with ' + req.params.provider);
+        // Materialize.toast('You logged in with ' + req.params.provider , 4000);
         res.redirect('/');
       });
     } else {
-      req.flash('danger', info.message);
+      // Materialize.toast(info.message, 4000);
       res.redirect('/auth/login');
     }
   })(req, res);
 });
 
 router.get('/logout', function(req, res) {
-  req.flash('info','You have been logged out.');
+  // Materialize.toast('You have been logged out.', 4000);
   req.logout();
   res.redirect('/');
 });

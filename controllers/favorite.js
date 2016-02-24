@@ -13,6 +13,7 @@ router.post('/', function(req, res){
 	console.log(req.body.title);
 	console.log(req.body.guideboxId);
 	console.log(req.body.image);
+	console.log(req.user);
 	res.send("favorite post");
 });
 
