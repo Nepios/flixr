@@ -25,7 +25,8 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
         models.user.belongsToMany(models.user, {through: models.usersFriends, as: 'user', foreignKey: 'userId'});
         models.user.belongsToMany(models.user, {through: models.usersFriends, as: 'friend', foreignKey: 'friendId'});
-        models.user.belongsToMany(models.movie, {through: models.usersMovies})
+        models.user.belongsToMany(models.movie, {through: models.usersMovies});
+        models.user.belongsToMany(models.show, {through: models.usersShows})
         models.user.hasMany(models.provider);
       },
    
@@ -35,9 +36,9 @@ module.exports = function(sequelize, DataTypes) {
           console.log("running authenticate function");
           bcrypt.compare(password, user.password, function(error, result){
             if (error) {
-              console.log("authenticate function error");
               callback(error);
             } else{
+
               callback(null, result ? user : false);
             }
           });
