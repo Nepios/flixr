@@ -16,18 +16,22 @@ router.get('/', function(req, res){
   });
 
 router.post('/', function(req, res){
-	db.user.findById(req.user.id).then(function(user) {
-		db.show.findOrCreate({
-			where: {title: req.body.title},
-			defaults: {
-				guideboxId: req.body.guideboxId,
-				image: req.body.image
-			}
-		}).spread(function(show, created){
-			user.addShow(show, {favorite: true});
-      res.redirect('/');
-		});
-	});
+  if (req.user){
+  	db.user.findById(req.user.id).then(function(user) {
+  		db.show.findOrCreate({
+  			where: {title: req.body.title},
+  			defaults: {
+  				guideboxId: req.body.guideboxId,
+  				image: req.body.image
+  			}
+  		}).spread(function(show, created){
+  			user.addShow(show, {favorite: true});
+        res.redirect('/');
+  		});
+  	});
+  } else {
+    res.redirect('/auth/login');
+  }
 });
 
 

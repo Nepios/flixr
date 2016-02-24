@@ -21,6 +21,7 @@ router.get('/show', function(req, res){
 router.get('/show/:id', function (req, res){
 	var showIndex = req.params.id;
 	var searchTerm = req.query.title ? req.query.q : '';
+	console.log(searchTerm);
 	request("https://api-public.guidebox.com/v1.43/US/" + process.env.SECRET_KEY + "/show/" + showIndex,
 	function(error, response, body){
 		if (!error && response.statusCode == 200){

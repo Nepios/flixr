@@ -49,4 +49,4 @@ app.use("/current", currentCtrl);
 app.use("/auth", authCtrl);
 app.use('/', require('./controllers/main'));
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
