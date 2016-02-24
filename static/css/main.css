@@ -9,3 +9,8 @@ nav {
 ul {
   display: inline-block;
 }
+
+.container {
+  clear: both;
+
+}

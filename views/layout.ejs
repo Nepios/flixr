@@ -12,16 +12,23 @@
   <nav>
     <div class="nav-wrapper">
       <a href="/" class="brand-logo center">Flixr</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="/auth/login">Login</a></li>
         <li><a href="/auth/signup">Signup</a></li>
         <li><a href="/auth/logout">Logout</a></li>
       </ul>
+      <form method="GET" action="/results/show">
+        <div class="left input-field">
+          <input id="search" type="search" name="show" required>
+          <label for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
     </div>
   </nav>
-	<div class="container">
-	<%- body %>
-	</div>
+  <div class="container">
+  	<%- body %>
+  </div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 	<script type="text/javascript" src="./js/script.js"></script>
 </body>
