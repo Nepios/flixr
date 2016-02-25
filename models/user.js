@@ -18,7 +18,8 @@ module.exports = function(sequelize, DataTypes) {
         len: [8, 99]
       }
     },
-    avatar: DataTypes.STRING
+    avatar: DataTypes.STRING,
+    bio: DataTypes.TEXT
   }, {
     classMethods: {
       associate: function(models) {
