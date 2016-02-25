@@ -34,5 +34,15 @@ router.post('/', function(req, res){
   }
 });
 
+router.post('/delete', function (req, res) {
+  db.show.findOne({where: {guideboxId: req.body.guideboxId}}).then(function(show){
+    db.usersShows.findOne({where: {userId: req.user.id, showId: show.id}}).then(function(row){
+      row.current = false;
+      row.save().then (function(){
+        res.redirect('/current');
+      });
+    });
+  })
+});
 
 module.exports = router;
