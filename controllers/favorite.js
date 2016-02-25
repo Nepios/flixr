@@ -34,6 +34,18 @@ router.post('/', function(req, res){
   }
 });
 
+router.post('/delete', function (req, res) {
+  db.show.findOne({where: {guideboxId: req.body.guideboxId}}).then(function(show){
+    console.log(show)
+    db.usersShows.findOne({where: {userId: req.user.id, showId: show.id}}).then(function(row){
+      console.log(row)
+      row.favorite = false;
+      row.save().then (function(){
+        res.redirect('/favorite');
+      });
+    });
+  })
+});
 
 
 

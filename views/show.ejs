@@ -29,3 +29,23 @@
     </form>
   </div>
 </div>
+  <div class="row">
+    <form method="POST" action="/favorite/delete">
+      <div class="input-field col s12 m4">
+      <input type="hidden" name="title" value="<%= showData.title %>"/>
+      <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
+      <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
+      <button type="submit" class="waves-effect waves-light btn">Remove from Favorites
+        </button>
+      </div>
+    </form>
+    <form method="DELETE" action="/current/:id" >
+      <div class="input-field col s12 m4">
+        <input type="hidden" name="title" value="<%= showData.title %>"/>
+        <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
+        <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
+        <button type="submit" class="waves-effect waves-light btn">Remove from Current
+          </button>
+    </form>
+  </div>
+</div>
