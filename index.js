@@ -13,6 +13,7 @@ var favoriteCtrl = require("./controllers/favorite");
 var currentCtrl = require("./controllers/current");
 var authCtrl = require("./controllers/auth");
 var strategies = require('./config/strategies');
+var userCtrl = require('./controllers/user');
 
 app.set("view engine", 'ejs');
 app.use(ejsLayouts);
@@ -43,6 +44,7 @@ app.use(function(req,res,next){
   next();
 });
 
+app.use('/user', userCtrl);
 app.use("/results", resultCtrl);
 app.use("/favorite", favoriteCtrl);
 app.use("/current", currentCtrl);
