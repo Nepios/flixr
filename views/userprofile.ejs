@@ -1,3 +1,22 @@
-<h1>User Profile</h1>
+<div class="center-align">
+  <h1><%= user.name %></h1>
+    <h4> Favorite Shows</h4>
+</div>
+<div class="carousel">
+  <% user.shows.forEach(function(show){%>
+    <% if (show.usersShows.favorite) { %>
+        <a class="carousel-item" href="/results/show/<%= show.guideboxId %>"><img src="<%= show.image%>"></a>
+    <% } %>
+  <% }) %>
+</div>
+<div class="center-align">
+    <h4> Current Shows</h4>
+</div>
+<div class="carousel">
+  <% user.shows.forEach(function(show){%>
+    <% if (show.usersShows.current) { %>
+        <a class="carousel-item" href="/results/show/<%= show.guideboxId %>"><img src="<%= show.image%>"></a>
+    <% } %>
+  <% }) %>
+</div>
 
-<%= user.name %>

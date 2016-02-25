@@ -2,15 +2,15 @@ nav {
 	background-color: #4db6ac;
 }
 
-.carousel-item img {
-
-}
-
-ul {
+ ul {
   display: inline-block;
 }
 
 .container {
   clear: both;
 
+}
+
+.carousel {
+  height: 200px;
 }

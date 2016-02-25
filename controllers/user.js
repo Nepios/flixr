@@ -12,10 +12,15 @@ router.get('/', function(req, res){
 });
 
 router.get('/:id', function(req, res){
-   db.user.findById(req.params.id).then(function(user) {
+  db.user.find({
+    where: {
+      id: req.params.id},
+      include: [db.show]
+      }).then(function(user) {
         res.render('userprofile', {user: user});
     });
-});
+  });
+
 
 
 
