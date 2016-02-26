@@ -21,4 +21,12 @@ router.get('/:id', function(req, res){
     });
   });
 
+// router.get('/edit', function(req, res){
+//   if (req.user.id){
+//     db.user.findById(req.user.id).then(function(user){
+//       res.render('editprofile', {user:user});
+//     });
+//   }
+// });
+
 module.exports = router;
