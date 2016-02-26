@@ -35,7 +35,7 @@ router.get('/:id', function(req, res){
     db.user.findById(req.user.id).then(function(user){
       db.user.findById(req.params.id).then(function(friend){
         user.removeFriend(friend);
-        res.redirect('/');
+        res.redirect('/friend');
       });
   });
   } else {
