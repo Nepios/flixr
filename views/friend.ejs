@@ -1,0 +1,9 @@
+<div class="center-align">
+  <h1>Friends</h1>
+  </div>
+  <div>
+    <% friends.forEach(function(friend){%>
+      <p><a href="/friend/<%= friend.id%>"><%= friend.name %></a>
+      <a href="/friend/<%= friend.id %>">Delete</a></p>
+      <% }); %>
+  </div>

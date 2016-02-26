@@ -14,6 +14,7 @@ var currentCtrl = require("./controllers/current");
 var authCtrl = require("./controllers/auth");
 var strategies = require('./config/strategies');
 var userCtrl = require('./controllers/user');
+var friendCtrl = require('./controllers/friend');
 
 app.set("view engine", 'ejs');
 app.use(ejsLayouts);
@@ -49,6 +50,7 @@ app.use("/results", resultCtrl);
 app.use("/favorite", favoriteCtrl);
 app.use("/current", currentCtrl);
 app.use("/auth", authCtrl);
+app.use("/friend", friendCtrl);
 app.use('/', require('./controllers/main'));
 
 app.listen(process.env.PORT || 3000);

@@ -19,4 +19,14 @@
     <% } %>
   <% }) %>
 </div>
-
+<div>
+  <div class="row">
+    <form method="POST" action="/friend">
+      <div class="input-field col s12 m3">
+      <input type="hidden" name="name" value="<%= user.name %>"/>
+      <input type="hidden" name="id" value="<%= user.id %>"/>
+      <button type="submit" class="waves-effect waves-light btn">Friend
+        </button>
+      </div>
+    </form>
+</div>
