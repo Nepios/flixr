@@ -22,7 +22,7 @@ router.post('/signup', function(req, res) {
   	}
   }).spread(function(user, created){
   	if (created) {
-  		res.redirect('/login');
+  		res.redirect('/auth/login');
   	} else {
   		res.send("User already exists");
   	}
