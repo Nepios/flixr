@@ -3,8 +3,9 @@
   </div>
   <div>
     <% friends.forEach(function(friend){%>
-      <p><%= friend.name %>
+      <h5><%= friend.name %>
       <a href="/friend/<%= friend.id %>">Delete</a>
-      </p>
+      </h5>
+      <%= friend.shows %>
       <% }); %>
   </div>

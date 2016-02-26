@@ -8,7 +8,7 @@ router.use(bodyParser.urlencoded({extended: false}));
 router.get('/', function(req, res){
   if (req.user.id){
     db.user.findById(req.user.id).then(function(user){
-      user.getFriend().then(function(friends){
+      user.getFriend({include: db.shows}).then(function(friends){
         res.render('friend', {friends:friends});
       });
     });
@@ -18,7 +18,6 @@ router.get('/', function(req, res){
   });
 
 router.post('/', function(req, res){
-  console.log(req.user.id);
   if (req.user.id){
     db.user.findById(req.user.id).then(function(user){
       db.user.findById(req.body.id).then(function(friend){

@@ -1,3 +1,13 @@
+@media (max-width: 600px) {
+  #index {
+  height: 300px;
+  width: 300px;
+  background-image: url('/child-watching-tv.jpg');
+  background-size: cover;
+}
+
+}
+
 nav {
 	background-color: #4db6ac;
 }
@@ -13,4 +23,10 @@ nav {
 
 .carousel {
   height: 200px;
+}
+#index {
+  height: 500px;
+  width: 100%;
+  background-image: url('/child-watching-tv.jpg');
+  background-size: cover;
 }
