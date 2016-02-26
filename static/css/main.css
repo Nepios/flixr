@@ -1,9 +1,12 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-
   #index {
   background-image: none !important;
+  }
 }
 
+body {
+  background-color: black;
+  color: white;
 }
 
 nav {
@@ -22,6 +25,7 @@ nav {
 .carousel {
   height: 200px;
 }
+
 #index {
   height: 500px;
   width: 100%;

@@ -22,7 +22,7 @@ router.post('/', function(req, res){
     db.user.findById(req.user.id).then(function(user){
       db.user.findById(req.body.id).then(function(friend){
         user.addFriend(friend);
-        res.redirect('/');
+        res.redirect('/friend');
       });
     });
   } else {
