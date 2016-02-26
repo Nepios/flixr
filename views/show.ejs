@@ -1,39 +1,40 @@
-<div>
-	<img class="responsive-img" src="<%= showData.artwork_448x252 %>">
-	 <p><%= showData.overview %></p>
-	  	<% platforms.results.web.episodes.all_sources.map(function(platform){ %>
-	  		<ul>
-	  			<li><%- platform.display_name %> | </li>
-	  		</ul>
-	  	<% }); %>
+<div class="center-align">
+  <img class="responsive-img" src="<%= showData.artwork_608x342 %>">
+   <p class='left-align'><%= showData.overview %></p>
+      <% platforms.results.web.episodes.all_sources.map(function(platform){ %>
+        <ul>
+          <li><%- platform.display_name %> | </li>
+        </ul>
+      <% }); %>
       <% if (netflix !== -1) { %>
             <%= netflix %>
             <% } %>
  </div>
 <div>
   <div class="row">
- 	  <form method="POST" action="/favorite">
-      <div class="input-field col s12 m3">
-   		<input type="hidden" name="title" value="<%= showData.title %>"/>
-  		<input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
-  		<input type="hidden" name="guideboxId" value="<%= showData.id%>"/>	
-   		<button type="submit" class="waves-effect waves-light btn">Add to Favorites
-    		</button>
+    <form method="POST" action="/favorite">
+      <div class="input-field col s12 m4 offset-m2 l4 offset-l3">
+      <input type="hidden" name="title" value="<%= showData.title %>"/>
+      <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
+      <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
+      <button type="submit" class="waves-effect waves-light btn">Add to Favorites
+        </button>
       </div>
     </form>
     <form method="POST" action="/current" >
-      <div class="input-field col s12 m3">
-    	 	<input type="hidden" name="title" value="<%= showData.title %>"/>
-    		<input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
-    		<input type="hidden" name="guideboxId" value="<%= showData.id%>"/>	
-     		<button type="submit" class="waves-effect waves-light btn">Add to Current
-      		</button>
+      <div class="input-field col s12 m4 l4">
+        <input type="hidden" name="title" value="<%= showData.title %>"/>
+        <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
+        <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
+        <button type="submit" class="waves-effect waves-light btn">Add to Current
+          </button>
     </form>
   </div>
 </div>
+<div>
   <div class="row">
     <form method="POST" action="/favorite/delete">
-      <div class="input-field col s12 m4">
+      <div class="input-field col s12 m4 offset-m2 l4 offset-l3">
       <input type="hidden" name="title" value="<%= showData.title %>"/>
       <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
       <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
@@ -42,12 +43,16 @@
       </div>
     </form>
     <form method="POST" action="/current/delete" >
-      <div class="input-field col s12 m4">
+      <div class="input-field col s12 m4 l4">
         <input type="hidden" name="title" value="<%= showData.title %>"/>
         <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
         <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
         <button type="submit" class="waves-effect waves-light btn">Remove from Current
           </button>
+      </div>
     </form>
   </div>
+ </div>
 </div>
+
+
