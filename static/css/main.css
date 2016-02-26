@@ -1,9 +1,9 @@
-@media (max-width: 600px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
   #index {
-  height: 300px;
-  width: 300px;
-  background-image: url('/child-watching-tv.jpg');
-  background-size: cover;
+  background-image: none !important;
+  background-color: black;
+
 }
 
 }
