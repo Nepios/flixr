@@ -6,7 +6,7 @@
   clear: both;
   float: left;
   }
-  btn {
+  .btn {
     margin: 5px;
   }
 }
@@ -39,8 +39,8 @@ nav {
   background-image: url('/child-watching-tv.jpg');
   background-size: cover;
 }
-.like btn {
-  margin: 5px;
+.btn {
+  border: 1px solid black;
 }
 
 #header {
