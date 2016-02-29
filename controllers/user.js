@@ -21,12 +21,9 @@ router.get('/:id', function(req, res){
     });
   });
 
-// router.get('/edit', function(req, res){
-//   if (req.user.id){
-//     db.user.findById(req.user.id).then(function(user){
-//       res.render('editprofile', {user:user});
-//     });
-//   }
-// });
+router.get('/', function(req, res){
+  res.render('404');
+});
+
 
 module.exports = router;

@@ -10,49 +10,36 @@
             <%= netflix %>
             <% } %>
  </div>
-<div>
-  <div class="row">
+<div class="like row center-align">
     <form method="POST" action="/favorite">
-      <div class="input-field col s12 m4 offset-m2 l4 offset-l3">
       <input type="hidden" name="title" value="<%= showData.title %>"/>
       <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
       <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
-      <button type="submit" class="waves-effect waves-light btn">Add to Favorites
+      <button type="submit" class="waves-effect waves-light btn col s12 m3 l3">Favorite
         </button>
-      </div>
+    </form>   
+    <form method="POST" action="/favorite/delete">
+      <input type="hidden" name="title" value="<%= showData.title %>"/>
+      <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
+      <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
+      <button type="submit" class="waves-effect waves-light btn col s12 m3 l3">Unfavorite
+              </button>
     </form>
     <form method="POST" action="/current" >
-      <div class="input-field col s12 m4 l4">
         <input type="hidden" name="title" value="<%= showData.title %>"/>
         <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
         <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
-        <button type="submit" class="waves-effect waves-light btn">Add to Current
+        <button type="submit" class="waves-effect waves-light btn col s12 m3 l3">Currently Watching
           </button>
     </form>
-  </div>
-</div>
-<div>
-  <div class="row">
-    <form method="POST" action="/favorite/delete">
-      <div class="input-field col s12 m4 offset-m2 l4 offset-l3">
-      <input type="hidden" name="title" value="<%= showData.title %>"/>
-      <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
-      <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
-      <button type="submit" class="waves-effect waves-light btn">Remove from Favorites
-        </button>
-      </div>
-    </form>
-    <form method="POST" action="/current/delete" >
-      <div class="input-field col s12 m4 l4">
+     <form method="POST" action="/current/delete" >
         <input type="hidden" name="title" value="<%= showData.title %>"/>
         <input type="hidden" name="image" value="<%= showData.artwork_448x252 %>"/>
         <input type="hidden" name="guideboxId" value="<%= showData.id%>"/>  
-        <button type="submit" class="waves-effect waves-light btn">Remove from Current
+        <button type="submit" class="waves-effect waves-light btn col s12 m3 l3">Remove from Current
           </button>
-      </div>
     </form>
-  </div>
- </div>
 </div>
+
 
 

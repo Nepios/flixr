@@ -2,6 +2,9 @@
   #index {
   background-image: none !important;
   }
+  #chair {
+  clear: both;
+  }
 }
 
 body {
@@ -31,4 +34,21 @@ nav {
   width: 100%;
   background-image: url('/child-watching-tv.jpg');
   background-size: cover;
+}
+.like btn {
+  margin: 5px;
+}
+
+#header {
+  margin-bottom: 25px;
+}
+
+#results {
+  width: 75%;
+  float: left;
+}
+
+#chair {
+  float: right;
+  width: 25%;
 }

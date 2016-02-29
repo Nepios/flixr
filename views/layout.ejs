@@ -4,10 +4,10 @@
 	<title>Flixr app</title>
   <link rel="shortcut icon" href="/tv.ico"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-	 <link rel="stylesheet" type="text/css" href="/css/main.css">
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
   <nav>
@@ -15,25 +15,29 @@
         <a href="/" class="brand-logo center">Flixr</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-        <% if (currentUser){ %>
-          <li><a href="/favorite">Favorites</a></li>
-          <li><a href="/current">Current</a></li>
-          <li><a href="/friend">Friends</a></li>
-          <li><a href="/user">Users</a></li>
-          <li><a href="/auth/logout">Logout</a></li>
+          <% if (currentUser){ %>
+            <li><a href="/about">About</a></li>
+            <li><a href="/favorite">Favorites</a></li>
+            <li><a href="/current">Current</a></li>
+            <li><a href="/friend">Friends</a></li>
+            <li><a href="/user">Users</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
           <% } else { %>
+            <li><a href="/about">About</a></li>
             <li><a href="/auth/login">Login</a></li>
             <li><a href="/auth/signup">Signup</a></li>
           <% } %>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-        <% if (currentUser){ %>
-          <li><a href="/favorite">Favorites</a></li>
-          <li><a href="/current">Current</a></li>
-          <li><a href="/friend">Friends</a></li>
-          <li><a href="/user">Users</a></li>
-          <li><a href="/auth/logout">Logout</a></li>
+          <% if (currentUser){ %>
+            <li><a href="/about">About</a></li>
+            <li><a href="/favorite">Favorites</a></li>
+            <li><a href="/current">Current</a></li>
+            <li><a href="/friend">Friends</a></li>
+            <li><a href="/user">Users</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
           <% } else { %>
+            <li><a href="/about">About</a></li>
             <li><a href="/auth/login">Login</a></li>
             <li><a href="/auth/signup">Signup</a></li>
           <% } %>
@@ -49,6 +53,7 @@
   </nav>
   <div class="container">
   	<%- body %>
+    
   </div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 	<script type="text/javascript" src="/js/script.js"></script>
