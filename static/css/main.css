@@ -6,6 +6,9 @@
   clear: both;
   float: left;
   }
+  btn {
+    margin: 5px;
+  }
 }
 
 body {
