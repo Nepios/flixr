@@ -3,8 +3,8 @@
   background-image: none !important;
   }
   #chair {
-  clear: left;
-  float: left;
+  clear: both !important;
+  float: left !important;
   }
   .btn {
     margin: 5px;
