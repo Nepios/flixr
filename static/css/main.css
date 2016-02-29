@@ -3,7 +3,7 @@
   background-image: none !important;
   }
   #chair {
-
+  clear: left;
   float: left;
   }
   .btn {
