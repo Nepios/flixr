@@ -17,13 +17,15 @@ router.get('/:id', function(req, res){
       id: req.params.id},
       include: [db.show]
       }).then(function(user) {
+        if (user) {
         res.render('userprofile', {user: user});
+      } else {
+        res.render('404');
+      }
+    }).catch(function(err){
+      res.render('404');
     });
   });
-
-router.get('/', function(req, res){
-  res.render('404');
-});
 
 
 module.exports = router;
