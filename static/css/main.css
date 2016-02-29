@@ -4,6 +4,7 @@
   }
   #chair {
   clear: both;
+  float: left;
   }
 }
 
