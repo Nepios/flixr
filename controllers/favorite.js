@@ -6,17 +6,21 @@ var request = require('request');
 router.use(bodyParser.urlencoded({extended: false}));
 
 router.get('/', function(req, res){
-	 db.user.find({
-    where: {
-      id: req.user.id},
-      include: [db.show]
-      }).then(function(user) {
-        res.render('favorite', {user: user});
-    });
+	 if (req.user.id){
+     db.user.find({
+      where: {
+        id: req.user.id},
+        include: [db.show]
+        }).then(function(user) {
+          res.render('favorite', {user: user});
+        });
+    } else {
+      res.redirect('/auth/login');
+    }
   });
 
 router.post('/', function(req, res){
-  if (req.user){
+  if (req.user.id){
   	db.user.findById(req.user.id).then(function(user) {
   		db.show.findOrCreate({
   			where: {title: req.body.title},

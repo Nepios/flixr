@@ -16,7 +16,7 @@ router.get('/', function(req, res){
   });
 
 router.post('/', function(req, res){
-  if (req.user){
+  if (req.user.id){
   	db.user.findById(req.user.id).then(function(user) {
   		db.show.findOrCreate({
   			where: {title: req.body.title},
@@ -35,14 +35,18 @@ router.post('/', function(req, res){
 });
 
 router.post('/delete', function (req, res) {
-  db.show.findOne({where: {guideboxId: req.body.guideboxId}}).then(function(show){
-    db.usersShows.findOne({where: {userId: req.user.id, showId: show.id}}).then(function(row){
-      row.current = false;
-      row.save().then (function(){
-        res.redirect('/current');
+  if (req.user.id){
+    db.show.findOne({where: {guideboxId: req.body.guideboxId}}).then(function(show){
+      db.usersShows.findOne({where: {userId: req.user.id, showId: show.id}}).then(function(row){
+        row.current = false;
+        row.save().then (function(){
+          res.redirect('/current');
+        });
       });
     });
-  })
+  } else {
+    req.redirect('/auth/login');
+  }
 });
 
 module.exports = router;
