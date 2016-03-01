@@ -33,14 +33,35 @@ router.post('/', function(req, res){
 router.get('/:id', function(req, res){
   if (req.user.id){
     db.user.findById(req.user.id).then(function(user){
-      db.user.findById(req.params.id).then(function(friend){
-        user.removeFriend(friend);
-        res.redirect('/friend');
-      });
-  });
+      if (req.params.id){
+        db.user.findById(req.params.id).then(function(friend){
+          // user.removeFriend(friend);
+          var friendId = friend.id;
+          res.render('friendprofile', {friend: friend});
+        });
+        } else {
+          res.render('404');
+        }
+    })
   } else {
     res.redirect('/auth/login');
   }
+});
+
+router.delete('/:id', function(req, res){
+  db.user.findById(req.user.id).then(function(user){
+    if(req.params.id){
+      db.user.findById(req.params.id).then(function(friend){
+        friend.destroy().then(function() {
+        res.send({msg: 'success'});
+        });
+      });
+    } else {
+      res.render('error');
+    }
+  }).catch(function(err) {
+    res.send({msg: 'error'});
+  });
 });
 
 
