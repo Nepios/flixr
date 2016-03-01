@@ -47,7 +47,6 @@ router.post('/login', function(req, res) {
         res.redirect('/');
       });
     } else {
-      // Materialize.toast('Error', 4000);
       res.redirect('/auth/login');
     }
   })(req, res);
@@ -66,18 +65,15 @@ router.get('/callback/:provider', function(req, res) {
     if (user) {
       req.login(user, function(err) {
         if (err) throw err;
-        // Materialize.toast('You logged in with ' + req.params.provider , 4000);
         res.redirect('/');
       });
     } else {
-      // Materialize.toast(info.message, 4000);
       res.redirect('/auth/login');
     }
   })(req, res);
 });
 
 router.get('/logout', function(req, res) {
-  // Materialize.toast('You have been logged out.', 4000);
   req.logout();
   res.redirect('/');
 });
