@@ -8,13 +8,7 @@ var ejsLayouts = require("express-ejs-layouts");
 var session = require('express-session');
 var flash = require('connect-flash');
 var request = require('request');
-var resultCtrl = require("./controllers/results");
-var favoriteCtrl = require("./controllers/favorite");
-var currentCtrl = require("./controllers/current");
-var authCtrl = require("./controllers/auth");
 var strategies = require('./config/strategies');
-var userCtrl = require('./controllers/user');
-var friendCtrl = require('./controllers/friend');
 
 app.set("view engine", 'ejs');
 app.use(ejsLayouts);
@@ -40,19 +34,17 @@ app.use(function(req,res,next){
   res.locals.currentUser = req.user;
   res.locals.isAuthenticated = req.isAuthenticated();
   res.locals.alerts = req.flash;
-  console.log(req.isAuthenticated());
-  console.log(req.user);
   next();
 });
 app.use("/about", function (req, res){
   res.render('about');
 });
-app.use('/user', userCtrl);
-app.use("/results", resultCtrl);
-app.use("/favorite", favoriteCtrl);
-app.use("/current", currentCtrl);
-app.use("/auth", authCtrl);
-app.use("/friend", friendCtrl);
+app.use('/user', require('./controllers/user'));
+app.use("/results", require("./controllers/results"));
+app.use("/favorite", require("./controllers/favorite"));
+app.use("/current", require("./controllers/current"));
+app.use("/auth", require("./controllers/auth"));
+app.use("/friend", require('./controllers/friend'));
 app.use('/', require('./controllers/main'));
 
 app.get('*', function(req, res){

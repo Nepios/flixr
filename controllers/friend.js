@@ -6,16 +6,16 @@ var request = require('request');
 router.use(bodyParser.urlencoded({extended: false}));
 
 router.get('/', function(req, res){
-  if (req.user.id){
-    db.user.findById(req.user.id).then(function(user){
+    db.user.find({where: {id: req.user.id}}).then(function(user){
       user.getFriend({include: db.shows}).then(function(friends){
         res.render('friend', {friends:friends});
-      });
+      }).catch(function(err){
+      res.render('404');
     });
-  } else {
-    res.redirect('/auth/login');
-  }
-  });
+    }).catch(function(err){
+      res.render('404');
+    });
+});
 
 router.post('/', function(req, res){
   if (req.user.id){
@@ -24,7 +24,9 @@ router.post('/', function(req, res){
         user.addFriend(friend);
         res.redirect('/friend');
       });
-    });
+    }).catch(function(err){
+      res.render('404');
+      });
   } else {
     res.redirect('/auth/login');
   }
@@ -33,16 +35,12 @@ router.post('/', function(req, res){
 router.get('/:id', function(req, res){
   if (req.user.id){
     db.user.findById(req.user.id).then(function(user){
-      if (req.params.id){
-        db.user.findById(req.params.id).then(function(friend){
-          // user.removeFriend(friend);
-          var friendId = friend.id;
-          res.render('friendprofile', {friend: friend});
-        });
-        } else {
-          res.render('404');
-        }
-    })
+      db.user.findById(req.params.id).then(function(friend){
+        res.render('friendprofile', {friend: friend});
+      });
+    }).catch(function(err){
+      res.render('404');
+      });
   } else {
     res.redirect('/auth/login');
   }
@@ -52,7 +50,7 @@ router.delete('/:id', function(req, res){
   db.user.findById(req.user.id).then(function(user){
     if(req.params.id){
       db.user.findById(req.params.id).then(function(friend){
-        friend.destroy().then(function() {
+        user.removeFriend(friend).then(function() {
         res.send({msg: 'success'});
         });
       });

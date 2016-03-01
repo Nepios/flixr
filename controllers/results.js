@@ -11,7 +11,6 @@ router.get('/show', function(req, res){
 	request("https://api-public.guidebox.com/v1.43/US/" + process.env.SECRET_KEY + "/search/title/" + searchTerm + '/fuzzy', 
 		function(error, response, body){
 			if (!error && response.statusCode == 200){
-				console.log(JSON.parse(body));
 				res.render('results.ejs', {
 				showlist: JSON.parse(body),
 				title: searchTerm,

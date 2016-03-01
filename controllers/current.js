@@ -6,14 +6,18 @@ var request = require('request');
 router.use(bodyParser.urlencoded({extended: false}));
 
 router.get('/', function(req, res){
-	 db.user.find({
+	if (req.user.id){
+   db.user.find({
     where: {
       id: req.user.id},
       include: [db.show]
       }).then(function(user) {
         res.render('current', {user: user});
     });
-  });
+  } else {
+      res.redirect('/auth/login');
+  }
+});
 
 router.post('/', function(req, res){
   if (req.user.id){
